@@ -1,3 +1,6 @@
+
+import javax.swing.JOptionPane;
+
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -31,6 +34,9 @@ public class Calculadora_IU extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         btnSumar = new javax.swing.JButton();
+        btnresta = new javax.swing.JButton();
+        btnmultiplicar = new javax.swing.JButton();
+        btndividir = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -39,6 +45,17 @@ public class Calculadora_IU extends javax.swing.JFrame {
         jLabel2.setText("NRO 2");
 
         btnSumar.setText("SUMAR");
+        btnSumar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSumarActionPerformed(evt);
+            }
+        });
+
+        btnresta.setText("RESTA");
+
+        btnmultiplicar.setText("MULTIPLICAR");
+
+        btndividir.setText("DIVIDIR");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -56,8 +73,14 @@ public class Calculadora_IU extends javax.swing.JFrame {
                             .addComponent(txtnro1, javax.swing.GroupLayout.DEFAULT_SIZE, 399, Short.MAX_VALUE)
                             .addComponent(txtNro2)))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(223, 223, 223)
-                        .addComponent(btnSumar)))
+                        .addGap(72, 72, 72)
+                        .addComponent(btnSumar)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(btnresta)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(btnmultiplicar)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(btndividir)))
                 .addContainerGap(51, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -71,13 +94,27 @@ public class Calculadora_IU extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(txtNro2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel2))
-                .addGap(26, 26, 26)
-                .addComponent(btnSumar)
-                .addContainerGap(34, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnSumar)
+                    .addComponent(btnresta)
+                    .addComponent(btnmultiplicar)
+                    .addComponent(btndividir))
+                .addContainerGap(47, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btnSumarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSumarActionPerformed
+        // TODO add your handling code here:
+        double nro1= Double.parseDouble(txtnro1.getText());
+        double nro2= Double.parseDouble(txtNro2.getText());
+        
+        double sumar= nro1+nro2;
+        
+        JOptionPane.showMessageDialog(this,  "La suma es : " +sumar);
+    }//GEN-LAST:event_btnSumarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -116,6 +153,9 @@ public class Calculadora_IU extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnSumar;
+    private javax.swing.JButton btndividir;
+    private javax.swing.JButton btnmultiplicar;
+    private javax.swing.JButton btnresta;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JTextField txtNro2;
